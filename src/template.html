@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Estadística I · Sustitutiva</title>
+<meta name="description" content="Árbol de estudio interactivo para preparar la sustitutiva de Estadística I: lecciones, ejercicios con corrección, formulario, simulacro y presentación.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='5' fill='%234B5320'/%3E%3Cpath d='M5 15l7-4 7 4M5 19.5l7-4 7 4' fill='none' stroke='%23F3E6BE' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='12' cy='6' r='2' fill='%23C9A227'/%3E%3C/svg%3E">
+<style>
+/*__CSS__*/
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="topbar">
+  <div class="brand"><span class="brand-ins" data-ic="insignia"></span><div><b>Estadística I</b><small>Preparación Sustitutiva 2026</small></div></div>
+  <div class="hdr-prog" title="Ejercicios resueltos"><div class="hp-bar"><i id="hp-fill"></i></div><span id="hp-n">0/69</span></div>
+  <nav class="hdr-nav" aria-label="Herramientas">
+    <button type="button" class="hb hb-practice" data-open="decision"><span data-ic="compass"></span><span class="lbl-long">Practica aquí: ¿qué distribución es para qué?</span><span class="lbl-short">Practica: ¿qué distribución?</span></button>
+    <button type="button" class="hb" data-open="formulario"><span data-ic="clipboard"></span><span>Formulario</span></button>
+    <button type="button" class="hb" data-open="simulacro"><span data-ic="flag"></span><span>Simulacro</span></button>
+    <button type="button" class="hb hb-pri" data-open="deck"><span data-ic="play"></span><span>Presentación</span></button>
+    <button type="button" class="hb ic-only" id="theme-btn" aria-label="Cambiar tema"></button>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero">
+    <div>
+      <span class="kicker"><span data-ic="insignia"></span>Escuela Militar · Estadística I</span>
+      <h1>Por el <span class="seven">7</span> en Estadística</h1>
+      <p class="lead">Del 1 al 6, avanza por cada nivel hasta llegar al final y quedarás listo para el examen.</p>
+      <p class="motto"><span data-ic="medal"></span>Toma tu tiempo, tómalo en serio, lo tienes.</p>
+      <div class="stats"><span class="stat"><b class="n">6</b> <b>unidades</b></span><span class="stat"><b class="n">23</b> <b>temas</b></span><span class="stat"><b class="n">69</b> <b>ejercicios</b></span><span class="stat"><b class="n">46</b> <b>preguntas Ítem I</b></span></div>
+    </div>
+    <div class="howto-steps">
+      <div class="hs"><b><span class="n">1</span>Despliega</b>Toca una unidad del árbol para ver sus temas.</div>
+      <div class="hs"><b><span class="n">2</span>Estudia</b>Abre un tema: definición, pasos y ejemplo del examen.</div>
+      <div class="hs"><b><span class="n">3</span>Practica</b>Resuelve Nivel 1 → 2 → 3. Usa pista solo si te trabas.</div>
+      <div class="hs"><b><span class="n">4</span>Simula</b>Rinde el simulacro con tiempo y revisa tu nota.</div>
+    </div>
+  </section>
+
+  <nav class="route" id="route" aria-label="Ruta de estudio del 1 al 6"></nav>
+
+  <section class="board-wrap" aria-label="Árbol de temas">
+    <div class="board-bar">
+      <span class="board-hint"><span data-ic="info"></span>Toca una unidad para desplegarla · toca un tema para abrir la lección</span>
+      <span class="legend"><span><i></i>pendiente</span><span><i class="k-ok"></i>resuelto</span><span><i class="k-sol"></i>vio solución</span></span>
+      <div class="board-btns"><button type="button" class="btn-s" id="expand-all"><span data-ic="expand"></span>Desplegar todo</button><button type="button" class="btn-s" id="collapse-all"><span data-ic="collapse"></span>Contraer</button></div>
+    </div>
+    <div class="board" id="map"><div class="map-inner" id="map-inner"><svg id="map-edges" class="map-edges" aria-hidden="true"></svg></div></div>
+  </section>
+
+  <div class="sec-h"><h2>Estructura del examen</h2><p>Qué pide cada ítem de la sustitutiva y qué temas lo resuelven</p></div>
+  <section class="exam-grid" id="exam-grid"></section>
+</main>
+
+<footer>
+  <span>Material de estudio · Estadística I · Sustitutiva 2026. El progreso se guarda solo en este navegador.</span>
+  <button type="button" class="lnk" id="reset-btn">Reiniciar progreso</button>
+</footer>
+
+<div class="drawer" id="drawer" hidden>
+  <div class="dr-backdrop" id="dr-backdrop"></div>
+  <aside class="dr-panel" role="dialog" aria-modal="true" aria-labelledby="dr-title">
+    <div class="dr-head">
+      <div class="dr-top">
+        <div class="dr-crumb" id="dr-crumb"></div>
+        <button type="button" class="icb" id="dr-prev" aria-label="Tema anterior"><span data-ic="chevL"></span></button>
+        <button type="button" class="icb" id="dr-next" aria-label="Tema siguiente"><span data-ic="chevR"></span></button>
+        <button type="button" class="icb" id="dr-close" aria-label="Cerrar lección"><span data-ic="close"></span></button>
+      </div>
+      <h2 class="dr-title" id="dr-title"></h2>
+      <div class="dr-tags" id="dr-tags"></div>
+      <nav class="dr-nav" id="dr-nav" aria-label="Secciones de la lección">
+        <button type="button" data-sec="ls-def">Definición</button>
+        <button type="button" data-sec="ls-car">Características</button>
+        <button type="button" data-sec="ls-cuando">Cuándo</button>
+        <button type="button" data-sec="ls-como">Cómo</button>
+        <button type="button" data-sec="ls-ej">Ejemplo</button>
+        <button type="button" data-sec="ls-ex">Ejercicios</button>
+        <button type="button" data-sec="ls-cq">Conceptos</button>
+      </nav>
+    </div>
+    <div class="dr-body" id="dr-body"></div>
+  </aside>
+</div>
+
+<div class="sheet" id="sheet" hidden>
+  <div class="sh-backdrop" id="sh-backdrop"></div>
+  <div class="sh-panel" role="dialog" aria-modal="true" aria-labelledby="sh-title">
+    <div class="sh-head"><h2 id="sh-title"></h2><button type="button" class="icb" id="sh-close" aria-label="Cerrar"><span data-ic="close"></span></button></div>
+    <div class="sh-body" id="sh-body"></div>
+  </div>
+</div>
+
+<div class="deck" id="deck" hidden role="dialog" aria-modal="true" aria-label="Presentación">
+  <div class="deck-view" id="deck-view"><div class="deck-stage" id="deck-stage"></div></div>
+  <div class="deck-ctl">
+    <button type="button" class="icb" id="deck-close" aria-label="Salir de la presentación"><span data-ic="close"></span></button>
+    <button type="button" class="icb" id="deck-fs" aria-label="Pantalla completa"><span data-ic="fullscreen"></span></button>
+    <button type="button" class="deck-kid" id="deck-kid" aria-pressed="false" title="Tecla E"><span data-ic="bulb"></span><span>Explicar fácil</span></button>
+    <div class="deck-dots" id="deck-dots"></div>
+    <span id="deck-count"></span>
+    <button type="button" class="icb" id="deck-prev" aria-label="Lámina anterior"><span data-ic="chevL"></span></button>
+    <button type="button" class="icb" id="deck-next" aria-label="Lámina siguiente"><span data-ic="chevR"></span></button>
+  </div>
+</div>
+
+<script>
+/*__JS__*/
+</script>
+</body>
+</html>
